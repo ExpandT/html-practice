@@ -7,16 +7,58 @@ h1, h2, h3, p{
 
 :root {
     font-family: "Open Sans", sans-serif;
-    font-size: 18px;
     --main-color: black;
     --accent-color: aquamarine;
+    scroll-behavior: smooth;
+}
+body{
+    max-width: 980px;
+    margin: auto;
 }
 
-h1 {
+header nav .logo{
+    font-family: "Libre Baskerville", serif;
+    font-size: 3.5rem;
+    text-align: center;
+    margin: 5px;
+    text-transform: uppercase;
+}
+#burger-checkbox{
+    display: none;
+}
+header nav .menu-items{
+    display: none;
+}
+header nav input:checked ~ .menu-items{
+    display: block;
+}
+
+header nav .menu-items a{
+    display: block;
+    text-decoration: none;
+    color: var(--main-color);
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    padding: 3px;
+}
+
+header .banner{
+    background-image: url(../img/g.png);
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+header .banner h1 {
     text-transform: uppercase;
     font-style: italic;
     font-family: "Libre Baskerville", serif;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+    color: var(--accent-color);
 }
 h2 {
     color: var(--accent-color);
@@ -31,8 +73,13 @@ img {
 .menu-items {
     border: 1px solid black;
 }
+.product-card img{
+    display: block;
+    width: 100%;
+}
 .product-buttons{
-    border: 2px solid black;
+    display: flex;
+    justify-content: space-around; 
 }
 .menu-items > a{
     text-decoration: none;
@@ -40,11 +87,35 @@ img {
 .menu-items > a:hover{
     border: 1px solid var(--accent-color);
 }
-.menu-items > a::before{
 
+@media (min-width: 769px){
+    header nav{
+        display: flex;
+    }
+    header nav .menu-items{
+        display: flex;
+        align-items: center;
+        flex: 1;
+        justify-content: space-around;
+    }
+    .burger-icon{
+        display: none;
+    }
 }
-
-p::first-letter{
-    font-style: italic;
-    font-weight: bold;
+@media (min-width: 540px){
+    .product-list{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 5px;
+    }
+}
+@media (min-width: 660px){
+    .product-list{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (min-width: 990px){
+    .product-list{
+        grid-template-columns: repeat(4 , 1fr);
+    }
 }
